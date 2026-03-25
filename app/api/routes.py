@@ -18,13 +18,12 @@ def ask_question_route(question: str):
     result = rag_chain.invoke({"query": question})
     print("\n Answer: ")
     print("\n Source Chunks Used:")
-    return {
-        "answer": result["result"],
-        "sources": [
-            {
-                "page": doc.metadata.get("page", "?"),
-                "content": doc.page_content[:200]
-            }
-            for doc in result["source_documents"]
-        ]
-    }
+    answer = result["result"]
+    return answer.replace("\n\n", "").strip()
+        # "sources": [
+        #     {
+        #         "page": doc.metadata.get("page", "?"),
+        #         "content": doc.page_content[:200]
+        #     }
+        #     for doc in result["source_documents"]
+        # ]
