@@ -13,7 +13,7 @@ vectorstore = vectorstore()
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
     api_key=os.environ.get("GROQ_API_KEY"),
-    temperature=0.3,
+    temperature=0.6,
     max_tokens=512,
 )
 
@@ -71,5 +71,4 @@ rag_chain = RetrievalQA.from_chain_type(
     retriever=retriever,
     return_source_documents=True,
     chain_type_kwargs={"prompt": prompt}
-
 )
