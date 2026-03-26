@@ -1,7 +1,6 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-
 def ingest_pdf():
     file_path = r"C:\Users\Ratnambar\Downloads\HR_Policy_Document_NovaTech.pdf"
     if not file_path:

@@ -22,8 +22,6 @@ def sanitize_score(score_dict):
             clean[k] = None
     return clean
 
-
-
 @app.get("/ingest")
 def ingest_route():
     chunks = split_text()
@@ -74,10 +72,3 @@ def ask_question_route(question: str):
         "answer": answer.replace("\n\n", "").strip(),
         "score": {"faithfulness": clean_score["faithfulness"], "answer_relevancy": clean_score["answer_relevancy"], "context_recall": clean_score["context_recall"], "context_precision": clean_score["context_precision"]}
     }
-        # "sources": [
-        #     {
-        #         "page": doc.metadata.get("page", "?"),
-        #         "content": doc.page_content[:200]
-        #     }
-        #     for doc in result["source_documents"]
-        # ]
